@@ -1,32 +1,32 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import React from "react";
-import PreviewerPage from "./components/PreviewerPage";
-import { SignIn } from "./components/SignIn";
-import SignUp from "./components/SignUp";
-import { Routes, Route } from "react-router-dom";
-import Header from "./components/Header";
-import { ReactSession } from "react-client-session";
-import Profile from "./components/Profile";
-import { useState, createContext } from "react";
-import ReactDOM from "react-dom/client";
-
-ReactSession.setStoreType("localstorage");
-ReactSession.remove("token");
-export const LoginStatus = createContext()
+import { UserProvider } from "./context/UserContext";
+import ChangePassword from "./login_components/ChangePassword";
+import { ForgotPassword } from "./login_components/ForgotPassword";
+import { Login } from "./login_components/Login";
+import Register from "./login_components/Register";
+import MdCreator from "./main_component/MdCreator";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [loginStatus, setLoginStatus] = useState(false);
   return (
     <>
-      <LoginStatus.Provider value={[loginStatus, setLoginStatus]}>
-      <Header />
-      <Routes>
-        <Route path="/" element={<PreviewerPage />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-      </LoginStatus.Provider>
+      <div className="App">
+        <BrowserRouter>
+          <ToastContainer theme="dark" />
+          <UserProvider>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/forgotpassword" element={<ForgotPassword />} />
+              <Route path="/changepassword/:email" element={<ChangePassword />} />
+              <Route path="/mdcreator" element={<MdCreator />} />
+            </Routes>
+          </UserProvider>
+        </BrowserRouter>
+      </div>
     </>
   );
 }

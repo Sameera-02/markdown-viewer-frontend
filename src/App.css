@@ -1,52 +1,19 @@
-.App-header {
-  background-color: #282c34;
+.form {
+  padding: 10px;
+  max-width: 400px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  font-size: calc(10px + 2vmin);
-  color: white;
-  padding: 0px 20px;
-  margin-bottom: 20px;
+  flex-direction: column;
+  margin-inline: auto;
 }
 
-.AppWrap {
-  display: flex;
-  flex-direction: row;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.signup-form {
+  gap: 12px;
 }
 
-textarea {
-  outline: none !important;
+.login-form {
+  gap: 16px;
 }
 
-.save {
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 20px;
-}
-
-.profileCard {
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  gap: 30px;
-  flex-direction: row;
-  justify-content: center;
-}
-
-.profileHeader{
-  padding-left: 30px
-}
-
-.profileset{
-  display: flex;
-  gap: 30px;
-  flex-direction: row;
-  justify-content: center;
+.forgot-form {
+  gap: 12px;
 }
